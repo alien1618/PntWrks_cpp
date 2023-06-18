@@ -6,7 +6,7 @@ int main()
     cout << "3D flow past cylinder" << endl;
     cout << "-----------------------------------------------------------------" << endl;
     cout << "Constructing pointset..."<< endl;
-    POINTSET pointset("geometry/FlowPastCircleMesh2D_v2/mesh_10000.dat");
+    POINTSET pointset("gmtry/Venturi3D/mesh_1450.dat");
 
     cout << "Assigning material properties..."<< endl;
     MATERIALS materials(1);
@@ -26,13 +26,13 @@ int main()
     cout << "Assigning boundary conditions..."<< endl;
     double vel = 10;
     BOUNDARY_CONDITIONS bc;
-    bc.Vx.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/inlet_10000.dat", vel);
-    bc.Vy.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/inlet_10000.dat", 0);
-    bc.Vz.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/inlet_10000.dat", 0);
-    bc.Vx.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/walls_10000.dat", 0);
-    bc.Vy.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/walls_10000.dat", 0);
-    bc.Vz.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/walls_10000.dat", 0);
-    bc.P.assignDBC(pointset, "geometry/FlowPastCircleMesh2D_v2/outlet_10000.dat", 0);
+    bc.Vx.assignDBC(pointset, "gmtry/Venturi3D/inlet_1450.dat", vel);
+    bc.Vy.assignDBC(pointset, "gmtry/Venturi3D/inlet_1450.dat", 0);
+    bc.Vz.assignDBC(pointset, "gmtry/Venturi3D/inlet_1450.dat", 0);
+    bc.Vx.assignDBC(pointset, "gmtry/Venturi3D/walls_1450.dat", 0);
+    bc.Vy.assignDBC(pointset, "gmtry/Venturi3D/walls_1450.dat", 0);
+    bc.Vz.assignDBC(pointset, "gmtry/Venturi3D/walls_1450.dat", 0);
+    bc.P.assignDBC(pointset, "gmtry/Venturi3D/outlet_1450.dat", 0);
 
     cout << "Assigning solver settings..."<< endl;
     SOLVER_SETTINGS settings;
@@ -51,7 +51,7 @@ int main()
     settings.P_factor = 1000;
     settings.AV_factor = 0.1;
     settings.prnt_freq = 1000;
-    pointset.AvgPntSpacing = 0.05; // essential to work
+    pointset.AvgPntSpacing = 0.2; // essential to work
 
     cout << "Running solver..."<< endl;
     double h = 1;

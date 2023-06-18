@@ -7,9 +7,9 @@ int main()
     cout << "-----------------------------------------------------------------" << endl;
 
     cout << "Constructing pointset..."<< endl;
-    POINTSET pointset("geometry/PlateWithHole2D/mesh_400.dat");
-    //POINTSET pointset("geometry/PlateWithHole2DO2/mesh_1200.dat");
-    //POINTSET pointset("geometry/SlottedRectangle2D/mesh_3000.dat");
+    POINTSET pointset("gmtry/PlateWithHole2D/mesh_400.dat");
+    //POINTSET pointset("gmtry/PlateWithHole2DO2/mesh_1200.dat");
+    //POINTSET pointset("gmtry/SlottedRectangle2D/mesh_3000.dat");
     
     cout << "Assigning material properties..."<< endl;
     MATERIALS materials(1);
@@ -24,14 +24,14 @@ int main()
 	
     cout << "Assigning boundary conditions..."<< endl;
     BOUNDARY_CONDITION bc;
-    bc.assignDBC(pointset, "geometry/PlateWithHole2D/bottom_400.dat", 1);
-    bc.assignDBC(pointset, "geometry/PlateWithHole2D/top_400.dat", 0);
+    bc.assignDBC(pointset, "gmtry/PlateWithHole2D/bottom_400.dat", 1);
+    bc.assignDBC(pointset, "gmtry/PlateWithHole2D/top_400.dat", 0);
     
-    //bc.assignDBC(pointset, "geometry/PlateWithHole2DO2/bottom_1200.dat", 1);
-    //bc.assignDBC(pointset, "geometry/PlateWithHole2DO2/top_1200.dat", 0);
+    //bc.assignDBC(pointset, "gmtry/PlateWithHole2DO2/bottom_1200.dat", 1);
+    //bc.assignDBC(pointset, "gmtry/PlateWithHole2DO2/top_1200.dat", 0);
     
-    //bc.assignDBC(pointset, "geometry/SlottedRectangle2D/hot_3000.dat", 35);
-    //bc.assignDBC(pointset, "geometry/SlottedRectangle2D/cold_3000.dat", 0);
+    //bc.assignDBC(pointset, "gmtry/SlottedRectangle2D/hot_3000.dat", 35);
+    //bc.assignDBC(pointset, "gmtry/SlottedRectangle2D/cold_3000.dat", 0);
     
     cout << "Assigning solver settings..."<< endl;
     SOLVER_SETTINGS settings;

@@ -7,7 +7,7 @@ void int main()
     cout << "-----------------------------------------------------------------" << endl;
 
     cout << "Constructing pointset..."<< endl;
-    POINTSET pointset("geometry/PlateWithHole3D/mesh_5000.dat");
+    POINTSET pointset("gmtry/PlateWithHole3D/mesh_5000.dat");
     
     cout << "Assigning material properties..."<< endl;
     MATERIALS materials(1);
@@ -22,8 +22,8 @@ void int main()
 	
     cout << "Assigning boundary conditions..."<< endl;
     BOUNDARY_CONDITION bc;
-    bc.assignDBC(pointset, "geometry/PlateWithHole3D/bottom_5000.dat", 1);
-    bc.assignDBC(pointset, "geometry/PlateWithHole3D/top_5000.dat", 0);
+    bc.assignDBC(pointset, "gmtry/PlateWithHole3D/bottom_5000.dat", 1);
+    bc.assignDBC(pointset, "gmtry/PlateWithHole3D/top_5000.dat", 0);
 
     cout << "Assigning solver settings..."<< endl;
     SOLVER_SETTINGS settings;

@@ -7,11 +7,7 @@ int main()
     cout << "-----------------------------------------------------------------" << endl;
 
     cout << "Constructing pointset..."<< endl;
-    //POINTSET pointset("geometry/PlateWithHole3D/mesh_5000.dat");
-    POINT p(0,0);
-    DOMAIN size(1,1,0.5);
-    RESOLUTION divs(50,50,25);
-    POINTSET pointset(p, size, divs, "H8");
+    POINTSET pointset("gmtry/PlateWithHole3D/mesh_5000.dat");
     
     cout << "Assigning material properties..."<< endl;
     MATERIALS materials(1);
@@ -26,11 +22,9 @@ int main()
 	
     cout << "Assigning boundary conditions..."<< endl;
     BOUNDARY_CONDITION bc;
-    //bc.assignDBC(pointset, "geometry/PlateWithHole3D/bottom_5000.dat", 1);
-    //bc.assignDBC(pointset, "geometry/PlateWithHole3D/top_5000.dat", 0);
+    bc.assignDBC(pointset, "gmtry/PlateWithHole3D/bottom_5000.dat", 1);
+    bc.assignDBC(pointset, "gmtry/PlateWithHole3D/top_5000.dat", 0);
 
-    bc.assignDBC(pointset.points, pointset.TotalPoints, "y", 0, 1);
-    
     cout << "Assigning solver settings..."<< endl;
     SOLVER_SETTINGS settings;
     settings.kernel.recompute_approximants = true;
@@ -43,9 +37,10 @@ int main()
     settings.kernel.WLS = "LS";
     settings.kernel.MLS = "S4";
     settings.kernel.SPH = "GE";
-    settings.dt = 0.0001;
-    settings.nt = 100;
+    settings.dt = 0.001;
+    settings.nt = 500;
     settings.prnt_freq = 10;
+    pointset.AvgPntSpacing = 0.04;
 
     cout << "Running solver..."<< endl;
     clock_t start, end;

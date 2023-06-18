@@ -5,10 +5,8 @@ echo "************************"
 echo "Generating makefile..."
 mkdir logs
 mkdir out
-mkdir pics
 mkdir obj
 rm -r out/*
-rm -r pics/*
 rm obj/main.o
 rm run
 rm a.out

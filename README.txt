@@ -1,33 +1,53 @@
-========================================================================
-Instructions to use PntWrks
-========================================================================
-1. If you're using Debian, ensure the  required packages are installed:
-sudo apt-get install bash gcc g++ make cmake libomp-dev openmpi-bin libgomp1 build-essential python3 python3-numpy python3-matplotlib python3-scipy
+-----------------------------------------------------------------------------------
+PntWrks
+----------------------------------------------------------------------------------
+PntWrks is a 2D/3D meshfree solver written in C++ and is used for solving the strong-form general transport equation, single-phase flow, two-phase flow and phase transformation problems. It uses various meshfree approximation methods such as:
+1. radial basis functions
+2. weighted least squares
+3. moving least squares
+4. smoothed kernel approximation
+It also uses various interface capturing techniques such as:
+1. volume of fluid
+2. level set method
+3. phase field method
+PntWrks currently solves the navier-stokes equations using the artificial compressibility pressure-correction method.
 
-If you're using FreeBSD, ensure the  required packages are installed:
+---------------------------------------------------------------------------------
+PntWrks has been tested to run on Debian and FreeBSD systems. To run FemWrks perform
+the following steps:
+
+1. On Debian, ensure the required packages are installed:
+sudo apt install bash gcc g++ make cmake libomp-dev openmpi-bin libgomp1 build-essential python3 python3-numpy python3-scipy python3-matplotlib
+
+On FreeBSD, ensure the following packages are installed:
 sudo pkg install gcc openmpi openmpi3 gmake cmake python python3 py38-numpy py38-scipy py38-matplotlib
 
-2. Edit permissions to shell script:
-chmod u+x run.sh
-chmod u+x cln.sh
+2. Inside the FemWrks folder, edit permissions to shell scripts:
+chmod u+x run.sh cln.sh genvid.sh
 
-3. Inside the "examples" folder, copy a case study and paste inside the PntWrks folder and rename the file to main.cpp
+3. Copy a case study from the examples folder and paste inside the main FemWrks folder. Rename it to "main.cpp"
 
-4. Inside the PntWrks folder directory run compiler script:
-./run.sh 
+4. Run compiler script:
+./run.sh
 
-or in FreeBSD as:
+or on FreeBSD:
 bash run.sh
 
-5. When the simulation is running, a folder called "out" is generated which has all the output data from the program. You can visualize the results in VTK format in Paraview, VisIt, or Salome-platform
+5. All the simulation results are generated and stored inside the "out" folder. 
+To view the results data in "VTK" format, use any software that open vtk files such as ParaView, VisIt, Salome-platform
 
-6. If you have data output in TXT format, you can use the included python script "pltpnts.py" or "pltmsh.py" to export JPG images of the solution as such:
-python3 pltmsh.py OR python3 pltpnts.py
+6. Data generated in "TXT" can be used to generate jpg images of the simulation using the included python script:
+python3 pltmsh.py <scale prmtr> <show msh flag> <var 1> <var 2>
 
-NOTE: Ensure the name of the variable you want to plot (defined in line 11 of pltmsh.py or  pltpints.py)
-matches the name of the results in the outputs folder. You also may need to edit the scale value to scale the plot as needed
+where the first parameter controls the scaling of the plot, the second is 1/0 which shows/hides the mesh, the third parameter is the variable you want plotted.
 
-7. To export the created JPG images inside the "pics" folder to video go inside the "pics" folder and in the terminal type:
-ffmpeg -i phi%d.jpg -vcodec mpeg4 phi.avi
+example:
+python3 pltmsh.py 5 1 U
 
-where phi is the name of the image sequence you want to export
+7. To export to video from the generated jpg images do the following:
+
+./genvid.sh U
+
+where U is the name of the variable that was used to generate the simulation pics in step 5
+
+

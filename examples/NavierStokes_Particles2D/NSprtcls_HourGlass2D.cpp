@@ -12,7 +12,7 @@ int main()
     POINTSET pointset(p,d,r);
 
     cout << "Constructing boundaries..."<< endl;
-    POINTSET bndry("geometry/SPH_HourGlass/mesh_500.dat");
+    POINTSET bndry("gmtry/SPH_HourGlass/mesh_500.dat");
 
     cout << "Constructing background grid..."<< endl;
     POINT p2(-0.25,-0.125);

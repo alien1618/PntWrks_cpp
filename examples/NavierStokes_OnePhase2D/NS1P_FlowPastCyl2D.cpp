@@ -3,10 +3,10 @@
 int main()
 {
     cout << "-----------------------------------------------------------------" << endl;
-    cout << "2D flow past cylinder" << endl;
+   cout << "2D flow past cylinder" << endl;
     cout << "-----------------------------------------------------------------" << endl;
     cout << "Constructing pointset..."<< endl;
-    POINTSET pointset("geometry/FlowPastCircle2D/mesh_10000.dat");
+    POINTSET pointset("gmtry/FlowPastCyl2D/mesh_10000.dat");
 
     cout << "Assigning material properties..."<< endl;
     MATERIALS materials(1);
@@ -26,13 +26,13 @@ int main()
     cout << "Assigning boundary conditions..."<< endl;
     BOUNDARY_CONDITIONS bc;
     double vel = 10;
-    bc.Vx.assignDBC(pointset, "geometry/FlowPastCircle2D/inlet_10000.dat", vel);
-    bc.Vy.assignDBC(pointset, "geometry/FlowPastCircle2D/inlet_10000.dat", 0);
-    bc.Vz.assignDBC(pointset, "geometry/FlowPastCircle2D/inlet_10000.dat", 0);
-    bc.Vx.assignDBC(pointset, "geometry/FlowPastCircle2D/walls_10000.dat", 0);
-    bc.Vy.assignDBC(pointset, "geometry/FlowPastCircle2D/walls_10000.dat", 0);
-    bc.Vz.assignDBC(pointset, "geometry/FlowPastCircle2D/walls_10000.dat", 0);
-    bc.P.assignDBC(pointset, "geometry/FlowPastCircle2D/outlet_10000.dat", 0);
+    bc.Vx.assignDBC(pointset, "gmtry/FlowPastCyl2D/inlet_10000.dat", vel);
+    bc.Vy.assignDBC(pointset, "gmtry/FlowPastCyl2D/inlet_10000.dat", 0);
+    bc.Vz.assignDBC(pointset, "gmtry/FlowPastCyl2D/inlet_10000.dat", 0);
+    bc.Vx.assignDBC(pointset, "gmtry/FlowPastCyl2D/walls_10000.dat", 0);
+    bc.Vy.assignDBC(pointset, "gmtry/FlowPastCyl2D/walls_10000.dat", 0);
+    bc.Vz.assignDBC(pointset, "gmtry/FlowPastCyl2D/walls_10000.dat", 0);
+    bc.P.assignDBC(pointset, "gmtry/FlowPastCyl2D/outlet_10000.dat", 0);
 
     cout << "Assigning solver settings..."<< endl;
     SOLVER_SETTINGS settings;

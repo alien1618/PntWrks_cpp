@@ -17,7 +17,7 @@ int main()
     pointset.computeVOF(0.5*pointset.AvgPntSpacing);
 
     cout << "Constructing boundaries..."<< endl;
-    POINTSET bndry("geometry/SPH_Rectangle/mesh_600.dat");
+    POINTSET bndry("gmtry/SPH_Rectangle/mesh_600.dat");
 
     cout << "Constructing background grid..."<< endl;
     POINT p2(-0.25,-0.25);

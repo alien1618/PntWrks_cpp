@@ -16,7 +16,7 @@ int main()
     POINTSET pointset(p,d,r);
 
     cout << "Constructing boundaries..."<< endl;
-    POINTSET bndry("geometry/SPH_DamBreak/mesh_900.dat");
+    POINTSET bndry("gmtry/SPH_DamBreak/mesh_900.dat");
 
     cout << "Constructing background grid..."<< endl;
     POINT p1(-0.25,-0.25);
