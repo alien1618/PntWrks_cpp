@@ -13,7 +13,7 @@ It also uses various interface capturing techniques such as:
 PntWrks currently solves the navier-stokes equations using the artificial compressibility pressure-correction method.
 
 ---------------------------------------------------------------------------------
-PntWrks has been tested to run on Debian and FreeBSD systems. To run FemWrks perform
+PntWrks has been tested to run on Debian and FreeBSD systems. To run PntWrks perform
 the following steps:
 
 1. On Debian, ensure the required packages are installed:
