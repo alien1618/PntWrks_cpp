@@ -22,10 +22,10 @@ sudo apt install bash gcc g++ make cmake libomp-dev openmpi-bin libgomp1 build-e
 On FreeBSD, ensure the following packages are installed:
 sudo pkg install gcc openmpi openmpi3 gmake cmake python python3 py38-numpy py38-scipy py38-matplotlib
 
-2. Inside the FemWrks folder, edit permissions to shell scripts:
+2. Inside the PntWrks folder, edit permissions to shell scripts:
 chmod u+x run.sh cln.sh genvid.sh
 
-3. Copy a case study from the examples folder and paste inside the main FemWrks folder. Rename it to "main.cpp"
+3. Copy a case study from the examples folder and paste inside the main PntWrks folder. Rename it to "main.cpp"
 
 4. Run compiler script:
 ./run.sh
