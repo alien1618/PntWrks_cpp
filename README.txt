@@ -6,6 +6,7 @@ PntWrks is a 2D/3D meshfree solver written in C++ and is used for solving the st
 2. weighted least squares
 3. moving least squares
 4. smoothed kernel approximation
+5. Generatlized finite differences
 It also uses various interface capturing techniques such as:
 1. volume of fluid
 2. level set method
