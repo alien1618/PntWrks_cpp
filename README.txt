@@ -6,12 +6,15 @@ PntWrks is a 2D/3D meshfree solver written in C++ and is used for solving the st
 2. weighted least squares
 3. moving least squares
 4. smoothed kernel approximation
-5. Generatlized finite differences
+5. moving kriging interpolation
+5. generalized finite differences
+
 It also uses various interface capturing techniques such as:
 1. volume of fluid
 2. level set method
 3. phase field method
-PntWrks currently solves the navier-stokes equations using the artificial compressibility pressure-correction method.
+
+PntWrks is capable of Eulerian formulations where the points are fixed in space, Lagrangian where the points are treated as moving particles, or coupled Eulerian-Lagrangian formulation where a set of moving particles are moving relative to a second set of fixed particles and one-way or two-way physics coupling is employed.
 
 ---------------------------------------------------------------------------------
 PntWrks has been tested to run on Debian and FreeBSD systems. To run PntWrks perform
